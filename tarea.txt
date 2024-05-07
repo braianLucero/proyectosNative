@@ -1,3 +1,0 @@
-// installar dependencias de navegation 
-// installar el stack navigation 
-// intallar ion icons para agregar iconos 

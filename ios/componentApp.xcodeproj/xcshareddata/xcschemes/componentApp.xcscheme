@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-               BuildableName = "componentsApps.app"
-               BlueprintName = "componentsApps"
-               ReferencedContainer = "container:componentsApps.xcodeproj">
+               BuildableName = "componentApp.app"
+               BlueprintName = "componentApp"
+               ReferencedContainer = "container:componentApp.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "00E356ED1AD99517003FC87E"
-               BuildableName = "componentsAppsTests.xctest"
-               BlueprintName = "componentsAppsTests"
-               ReferencedContainer = "container:componentsApps.xcodeproj">
+               BuildableName = "componentAppTests.xctest"
+               BlueprintName = "componentAppTests"
+               ReferencedContainer = "container:componentApp.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -55,9 +55,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "componentsApps.app"
-            BlueprintName = "componentsApps"
-            ReferencedContainer = "container:componentsApps.xcodeproj">
+            BuildableName = "componentApp.app"
+            BlueprintName = "componentApp"
+            ReferencedContainer = "container:componentApp.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -72,9 +72,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "componentsApps.app"
-            BlueprintName = "componentsApps"
-            ReferencedContainer = "container:componentsApps.xcodeproj">
+            BuildableName = "componentApp.app"
+            BlueprintName = "componentApp"
+            ReferencedContainer = "container:componentApp.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
