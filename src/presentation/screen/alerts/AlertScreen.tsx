@@ -54,6 +54,16 @@ export const AlertScreen = () => {
       buttons: [{text: 'Ok', onPress: () => console.log('ok')}],
       placeholder: 'Placeholder',
     });
+
+    // ! Código nativo
+    // Alert.prompt(
+    //   'Correo electronico',
+    //   'Enim commodo ut amet esse aliqua.',
+    //   (valor: string) => console.log({valor}),
+    //   'secure-text',
+    //   'Soy el valor por defecto',
+    //   'number-pad'
+    // );
   };
 
   return (
