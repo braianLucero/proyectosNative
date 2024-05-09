@@ -34,17 +34,16 @@ export const ThemeProvider = ({children}: PropsWithChildren) => {
     }
   }, [colorScheme]);
 
-  // useEffect(() => {
-  //   const subscription = AppState.addEventListener('change', nextAppState => {
-  //     const colorScheme = Appearance.getColorScheme();
-  //     setCurrentTheme( colorScheme === 'dark' ? 'dark' : 'light')
+  useEffect(() => {
+    const subscription = AppState.addEventListener('change', nextAppState => {
+      const colorScheme = Appearance.getColorScheme();
+      setCurrentTheme(colorScheme === 'dark' ? 'dark' : 'light');
+    });
 
-  //   });
-
-  //   return () => {
-  //     subscription.remove();
-  //   };
-  // }, []);
+    return () => {
+      subscription.remove();
+    };
+  }, []);
 
   const setTheme = (theme: ThemeColor) => {
     setCurrentTheme(theme);
