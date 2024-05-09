@@ -1,9 +1,12 @@
 import 'react-native-gesture-handler';
 import {NavigationContainer} from '@react-navigation/native';
 import React, {PropsWithChildren} from 'react';
+import {PaperProvider} from 'react-native-paper';
 
 export const PokedexApp = ({children}: PropsWithChildren) => {
-  return <NavigationContainer>{children}</NavigationContainer>;
+  return (
+    <PaperProvider>
+      <NavigationContainer>{children}</NavigationContainer>;
+    </PaperProvider>
+  );
 };
-
-// creando los directorios y componentes necesarios para el uso de mi app
