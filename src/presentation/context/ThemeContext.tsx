@@ -40,13 +40,13 @@ export const ThemeProvider = ({children}: PropsWithChildren) => {
   //     setCurrentTheme(colorScheme === 'dark' ? 'dark' : 'light');
   //   });
 
-    return () => {
-      subscription.remove();
-    };
-  }, []);
+  //   return () => {
+  //     subscription.remove();
+  //   };
+  // }, []);
 
-  const setTheme = (theme: ThemeColor) => {
-    setCurrentTheme(theme);
+  // const setTheme = (theme: ThemeColor) => {
+  //   setCurrentTheme(theme);
   };
 
   return (
