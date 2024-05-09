@@ -20,11 +20,11 @@ interface ThemeContextProps {
 export const ThemeContext = createContext({} as ThemeContextProps);
 
 export const ThemeProvider = ({children}: PropsWithChildren) => {
-  // const colorScheme = useColorScheme();
-  // const [currentTheme, setCurrentTheme] = useState<ThemeColor>('light');
+  const colorScheme = useColorScheme();
+  const [currentTheme, setCurrentTheme] = useState<ThemeColor>('light');
 
-  // const isDark = currentTheme === 'dark';
-  // const colors = isDark ? darkColors : lightColors;
+  const isDark = currentTheme === 'dark';
+  const colors = isDark ? darkColors : lightColors;
 
   useEffect(() => {
     if (colorScheme === 'dark') {
@@ -34,11 +34,11 @@ export const ThemeProvider = ({children}: PropsWithChildren) => {
     }
   }, [colorScheme]);
 
-  useEffect(() => {
-    const subscription = AppState.addEventListener('change', nextAppState => {
-      const colorScheme = Appearance.getColorScheme();
-      setCurrentTheme(colorScheme === 'dark' ? 'dark' : 'light');
-    });
+  // useEffect(() => {
+  //   const subscription = AppState.addEventListener('change', nextAppState => {
+  //     const colorScheme = Appearance.getColorScheme();
+  //     setCurrentTheme(colorScheme === 'dark' ? 'dark' : 'light');
+  //   });
 
     return () => {
       subscription.remove();
