@@ -20,11 +20,11 @@ interface ThemeContextProps {
 export const ThemeContext = createContext({} as ThemeContextProps);
 
 export const ThemeProvider = ({children}: PropsWithChildren) => {
-  const colorScheme = useColorScheme();
-  const [currentTheme, setCurrentTheme] = useState<ThemeColor>('light');
+  // const colorScheme = useColorScheme();
+  // const [currentTheme, setCurrentTheme] = useState<ThemeColor>('light');
 
-  const isDark = currentTheme === 'dark';
-  const colors = isDark ? darkColors : lightColors;
+  // const isDark = currentTheme === 'dark';
+  // const colors = isDark ? darkColors : lightColors;
 
   useEffect(() => {
     if (colorScheme === 'dark') {
