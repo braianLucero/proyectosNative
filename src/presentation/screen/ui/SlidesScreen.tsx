@@ -100,3 +100,41 @@ export const SlidesScreen = () => {
 interface SlideItemProps {
   item: Slide;
 }
+
+const SlideItem = ({item}: SlideItemProps) => {
+  const {colors} = useContext(ThemeContext);
+  const {width} = useWindowDimensions();
+  const {title, desc, img} = item;
+
+  return (
+    <View
+      style={{
+        flex: 1,
+        backgroundColor: colors.cardBackground,
+        borderRadius: 5,
+        padding: 40,
+        justifyContent: 'center',
+        width: width,
+      }}>
+      <Image
+        source={img}
+        style={{
+          width: width * 0.7,
+          height: width * 0.7,
+          resizeMode: 'center',
+          alignSelf: 'center',
+        }}
+      />
+
+      <Text style={[globalStyles.title, {color: colors.primary}]}>{title}</Text>
+
+      <Text
+        style={{
+          color: colors.text,
+          marginTop: 20,
+        }}>
+        {desc}
+      </Text>
+    </View>
+  );
+};
