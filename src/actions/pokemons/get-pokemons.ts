@@ -23,7 +23,9 @@ export const getPokemons = async (
       PokemonMapper.pokeApiPokemonToEntity(item.data),
     );
 
+
     return await Promise.all(pokemonsPromises);
+
   } catch (error) {
     console.log(error);
     throw new Error('Error getting pokemons');
