@@ -40,22 +40,6 @@ export class PokemonMapper {
       data.sprites.back_shiny,
     ];
 
-    if (data.sprites.other?.home.front_default) {
-      sprites.push(data.sprites.other?.home.front_default);
-    }
-    if (data.sprites.other?.['official-artwork'].front_default) {
-      sprites.push(data.sprites.other?.['official-artwork'].front_default);
-    }
-    if (data.sprites.other?.['official-artwork'].front_shiny) {
-      sprites.push(data.sprites.other?.['official-artwork'].front_shiny);
-    }
-    if (data.sprites.other?.showdown.front_default) {
-      sprites.push(data.sprites.other?.showdown.front_default);
-    }
-    if (data.sprites.other?.showdown.back_default) {
-      sprites.push(data.sprites.other?.showdown.back_default);
-    }
-
     return sprites;
   }
 }

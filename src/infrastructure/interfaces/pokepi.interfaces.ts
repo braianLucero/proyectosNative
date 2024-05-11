@@ -175,14 +175,3 @@ export interface DreamWorld {
 export interface GenerationViii {
   icons: DreamWorld;
 }
-
-export interface Stat {
-  base_stat: number;
-  effort: number;
-  stat: Species;
-}
-
-export interface Type {
-  slot: number;
-  type: Species;
-}
