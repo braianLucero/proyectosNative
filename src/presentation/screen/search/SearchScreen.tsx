@@ -2,11 +2,9 @@ import {FlatList, StyleSheet, View} from 'react-native';
 import {globalTheme} from '../../../config/theme/global-theme';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import {ActivityIndicator, TextInput, Text} from 'react-native-paper';
-import {Pokemon} from '../../../domain/entities/pokemon';
 import {PokemonCard} from '../../components/pokemons/PokemonCard';
 import {useQuery} from '@tanstack/react-query';
 import {
-  getPokemonNamesWithId,
   getPokemonsByIds,
 } from '../../../actions/pokemons';
 import {useMemo, useState} from 'react';
@@ -22,7 +20,7 @@ export const SearchScreen = () => {
 
   const {isLoading, data: pokemonNameList = []} = useQuery({
     queryKey: ['pokemons', 'all'],
-    queryFn: () => getPokemonNamesWithId(),
+    queryFn: () => get PokemonNamesWithId(),
   });
 
   // Todo: aplicar debounce
@@ -96,6 +94,5 @@ const style = StyleSheet.create({
     opacity: 0.5,
     width: 300,
     height: 300,
-    zIndex: -1,
   },
 });
