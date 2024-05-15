@@ -1,64 +1,44 @@
-import { Platform } from 'react-native';
-import { PERMISSIONS, PermissionStatus as RNPermissionStatus, check, openSettings, request } from 'react-native-permissions';
-import type { PermissionStatus } from '../../infrastructure/interfaces/permissions';
+import Geolocation from '@react-native-community/geolocation';
+import {Location} from '../../infrastructure/interfaces/location';
 
+export const getCurrentLocation = async (): Promise<Location> => {
+  return new Promise((resolve, reject) => {
+    Geolocation.getCurrentPosition(
+      info => {
+        resolve({
+          latitude: info.coords.latitude,
+          longitude: info.coords.longitude,
+        });
+      },
+      error => {
+        console.log("Can't get location");
+        reject(error);
+      },
+      {
+        enableHighAccuracy: true,
+      },
+    );
+  });
+};
 
+export const watchCurrentLocation = (
+  locationCallback: (location: Location) => void,
+): number => {
+  return Geolocation.watchPosition(
+    info =>
+      locationCallback({
+        latitude: info.coords.latitude,
+        longitude: info.coords.longitude,
+      }),
+    error => {
+      throw new Error("Can't get watchPosition");
+    },
+    {
+      enableHighAccuracy: true,
+    },
+  );
+};
 
-export const requestLocationPermission = async():Promise<PermissionStatus> => {
-
-  let status: RNPermissionStatus = 'unavailable';
-
-  if ( Platform.OS === 'ios' ) {
-    status = await request( PERMISSIONS.IOS.LOCATION_WHEN_IN_USE );
-  } else if ( Platform.OS === 'android' ) {
-    status = await request( PERMISSIONS.ANDROID.ACCESS_FINE_LOCATION );
-  } else {
-    throw new Error( 'Unsupported platform' );
-  }
-
-  if ( status === 'blocked' ) {
-    await openSettings();
-    return await checkLocationPermission();
-  }
-
-  const permissionMapper: Record<RNPermissionStatus, PermissionStatus> = {
-    granted: 'granted',
-    denied: 'denied',
-    blocked: 'blocked',
-    unavailable: 'unavailable',
-    limited: 'limited',
-  };
-
-  return permissionMapper[status] ?? 'unavailable';
-
-}
-
-
-
-export const checkLocationPermission = async():Promise<PermissionStatus> => {
-
-  let status: RNPermissionStatus = 'unavailable';
-
-  if ( Platform.OS === 'ios' ) {
-    status = await check( PERMISSIONS.IOS.LOCATION_WHEN_IN_USE );
-  } else if ( Platform.OS === 'android' ) {
-    status = await check( PERMISSIONS.ANDROID.ACCESS_FINE_LOCATION );
-  } else {
-    throw new Error( 'Unsupported platform' );
-  }
-
-
-  const permissionMapper: Record<RNPermissionStatus, PermissionStatus> = {
-    granted: 'granted',
-    denied: 'denied',
-    blocked: 'blocked',
-    unavailable: 'unavailable',
-    limited: 'limited',
-  };
-
-  return permissionMapper[status] ?? 'unavailable';
-
-
-}
-
-
+export const clearWatchLocation = (watchId: number) => {
+  Geolocation.clearWatch(watchId);
+};
