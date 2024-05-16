@@ -10,7 +10,6 @@ export const PermissionsChecker = ({children}: PropsWithChildren) => {
 
   useEffect(() => {
     if (locationStatus === 'granted') {
-      
       navigation.reset({
         routes: [{name: 'MapScreen'}],
       });
