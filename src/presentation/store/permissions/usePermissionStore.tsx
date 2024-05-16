@@ -22,9 +22,9 @@ export const usePermissionStore = create<PermissionsState>()(set => ({
     return status;
   },
 
-  checkLocationPermission: async () => {
-    const status = await checkLocationPermission();
-    set({locationStatus: status});
-    return status;
+  // checkLocationPermission: async () => {
+  //   const status = await checkLocationPermission();
+  //   set({locationStatus: status});
+  //   return status;
   },
 }));
