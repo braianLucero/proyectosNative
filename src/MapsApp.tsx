@@ -10,9 +10,9 @@ enableLatestRenderer();
 export const MapsApp = () => {
   return (
     <NavigationContainer>
-      <PermissionsChecker>
-        <StackNavigator />
-      </PermissionsChecker>
+      {/* <PermissionsChecker> */}
+      <StackNavigator />
+      {/* </PermissionsChecker> */}
     </NavigationContainer>
   );
 };
