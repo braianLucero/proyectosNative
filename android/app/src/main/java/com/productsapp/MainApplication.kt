@@ -1,4 +1,4 @@
-package com.mapsapp
+package com.productsapp
 
 import android.app.Application
 import com.facebook.react.PackageList
