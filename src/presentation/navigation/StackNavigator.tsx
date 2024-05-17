@@ -1,14 +1,30 @@
 import {createStackNavigator} from '@react-navigation/stack';
+import {LoadingScreen} from '../screens/loading/LoadingScreen';
+import {MapScreen} from '../screens/maps/MapScreen';
+import {PermissionsScreen} from '../screens/permissions/PermissionsScreen';
 
-const Stack = createStackNavigator();
+export type RootStackParams = {
+  LoadingScreen: undefined;
+  PermissionsScreen: undefined;
+  MapScreen: undefined;
+};
 
-export const Stack = () => {
+const Stack = createStackNavigator<RootStackParams>();
+
+export const StackNavigator = () => {
   return (
-    <Stack.Navigator>
-      <Stack.Screen name="Home" component={Home} />
-      <Stack.Screen name="Notifications" component={Notifications} />
-      <Stack.Screen name="Profile" component={Profile} />
-      <Stack.Screen name="Settings" component={Settings} />
+    <Stack.Navigator
+      initialRouteName="LoadingScreen"
+      // initialRouteName="PermissionsScreen"
+      screenOptions={{
+        headerShown: false,
+        cardStyle: {
+          backgroundColor: 'white',
+        },
+      }}>
+      <Stack.Screen name="LoadingScreen" component={LoadingScreen} />
+      <Stack.Screen name="MapScreen" component={MapScreen} />
+      <Stack.Screen name="PermissionsScreen" component={PermissionsScreen} />
     </Stack.Navigator>
   );
 };
