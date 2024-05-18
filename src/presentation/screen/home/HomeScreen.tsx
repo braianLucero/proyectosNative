@@ -1,15 +1,18 @@
-import React from 'react';
-import * as eva from '@eva-design/eva';
-import {ApplicationProvider, Layout, Text} from '@ui-kitten/components';
+import {Button, Icon, Layout, Text} from '@ui-kitten/components';
+import {useAuthStore} from '../../store/auth/useAuthStore';
 
-const HomeScreen = () => (
-  <Layout style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-    <Text category="h1">HOME</Text>
-  </Layout>
-);
+export const HomeScreen = () => {
+  const {logout} = useAuthStore();
 
-export default () => (
-  <ApplicationProvider {...eva} theme={eva.light}>
-    <HomeScreen />
-  </ApplicationProvider>
-);
+  return (
+    <Layout style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+      <Text>HomeScreen</Text>
+
+      {/* <Icon name="facebook" /> */}
+
+      <Button accessoryLeft={<Icon name="log-out-outline" />} onPress={logout}>
+        Cerrar sesión
+      </Button>
+    </Layout>
+  );
+};
